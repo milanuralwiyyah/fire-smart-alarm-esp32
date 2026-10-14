@@ -1,0 +1,38 @@
+#include <Arduino.h>
+
+// ===============================
+// MQ-2
+// ===============================
+#define MQ2_AO 34
+
+// ===============================
+// SETUP
+// ===============================
+void setup()
+{
+    Serial.begin(115200);
+    delay(1000);
+
+    Serial.println();
+    Serial.println("================================");
+    Serial.println("     KALIBRASI SENSOR MQ-2");
+    Serial.println("================================");
+    Serial.println();
+    Serial.println("Sensor sedang membaca nilai...");
+    Serial.println("Pastikan tidak ada asap/gas");
+    Serial.println("atau parfum di dekat sensor.");
+    Serial.println();
+}
+
+// ===============================
+// LOOP
+// ===============================
+void loop()
+{
+    int smokeValue = analogRead(MQ2_AO);
+
+    Serial.print("MQ-2 AO: ");
+    Serial.println(smokeValue);
+
+    delay(1000);
+}
